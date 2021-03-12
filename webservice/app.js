@@ -1,41 +1,50 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const path = require('path')
+const express = require("express");
 
 var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// Serve APIs
+app.use('/api', require('./api'));
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve app resources at root (/)
+app.use(express.static(path.join(__dirname, '../build/')))
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+// Serve app HTML file at all other paths (/tasks, /users, etc)
+app.use((_, res)=>res.sendFile(path.join(__dirname, '../build/index.html')))
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  // Make a new clean error object that can be json-ified
+  let error = {
+    error: err.message,
+    status: err.status
+  };
 
-  // render the error page
+  // Potentially add the stack trace to it
+  if (process.env.NODE_ENV === "development") {
+    error.trace = err.stack;
+  }
+
+  // Set status and send it back
   res.status(err.status || 500);
-  res.render('error');
+  res.json(error);
 });
 
 module.exports = app;
+
+process.on("uncaughtException", err => {
+  const timestamp = (new Date()).toLocaleString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  })
+
+  console.log(`Uncaught exception: (${timestamp})`)
+  console.log(err);
+  console.error(err.stack);
+  process.exit(1);
+});
