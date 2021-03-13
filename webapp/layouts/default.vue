@@ -1,117 +1,92 @@
 <template>
-  <v-app dark>
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
-      app
-    >
-      <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+  <v-app>
+
     <v-app-bar
-      :clipped-left="clipped"
       fixed
       app
+      elevate-on-scroll
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
+      <v-toolbar-title class="title"  v-text="title"/> 
+      <v-text-field 
+        v-model="search" 
+        append-icon="mdi-magnify"
+        solo 
+        dense
+        rounded
+        clearable
+        hide-details
+        label="Search"
+        class="searchBar"
+        @click:append="getResults(search)"
+        @keydown.enter="getResults(search)"
+        >
+      </v-text-field>
       <v-spacer />
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
     </v-app-bar>
+    
     <v-main>
-      <v-container>
-        <nuxt />
+      <v-container class="container">
+        <nuxt searchResults="results"/>
       </v-container>
     </v-main>
-    <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
-    >
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+
     <v-footer
-      :absolute="!fixed"
+      fixed
       app
     >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <div class="footNote">
+        Data Sourced From: 
+        <v-img
+          class="imgF"
+          max-height= "5%"
+          max-width="15%"
+          src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg"
+        >
+        </v-img>
+      </div>
     </v-footer>
   </v-app>
 </template>
 
+<style>
+  .title{
+    margin-right: 19%;
+  }
+
+  .imgF{
+    margin-left: 2%;
+  }
+
+  .footNote{
+    display: flex;
+    margin-left: 87%;
+  }
+
+
+  .container {
+    margin-right: 23%;
+    margin-left: 23%;
+  }
+</style>
+
 <script>
+import axios from "axios"
+
 export default {
-  data () {
-    return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
+  data: () => ({
+    fixed: false,
+    isResult: false,
+    title: 'Movie Finder',
+    search: "",
+  }),
+
+  methods: {
+    async getResults (search) {
+      const url = "http://localhost:3000/api/movies?search="
+      const {data} = await axios.get(url + search.replace(/ /g, "+"))
+      this.$store.commit('searchResults/set', data)
     }
   }
+
 }
 </script>
