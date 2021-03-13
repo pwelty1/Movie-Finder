@@ -2,7 +2,7 @@ const router = require('express-promise-router')();
 const debug = require("debug")("movie-lookup:api");
 
 
-// router.use('/sources', require('./source'))
+router.use('/movies', require('./movies'))
 
 // API 404 handler
 router.use((req,res,next)=>{
