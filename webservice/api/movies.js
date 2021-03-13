@@ -19,7 +19,7 @@ router.get('/', handlers.get_movies = async (req, res) => {
             const movie = {
                 "movie_id": result.id,
                 "title": result.original_title,
-                "poster_image_url": image_url + result.poster_path,
+                "poster_image_url": result.poster_path !== null ? image_url + result.poster_path : null,
                 "popularity_summary": `${result.popularity} out of ${result.vote_count}`
             }
             return movie
