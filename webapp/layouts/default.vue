@@ -62,7 +62,6 @@
     margin-left: 87%;
   }
 
-
   .container {
     margin-right: 23%;
     margin-left: 23%;
@@ -87,6 +86,5 @@ export default {
       this.$store.commit('searchResults/set', data)
     }
   }
-
 }
 </script>

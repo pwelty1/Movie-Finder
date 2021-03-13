@@ -20,7 +20,6 @@
   .list{
     max-width: 70%;
   }
-
 </style>
 
 <script>
@@ -36,17 +35,10 @@ export default {
     ResultItem
   },
 
-  // data: () => ({
-  //     selectedItem: -1,
-  // }),
-
   computed: {
      results() {
       return this.$store.state.searchResults.list
     }
-  },
-
-
-  
+  }
 }
 </script>

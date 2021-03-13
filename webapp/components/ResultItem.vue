@@ -15,7 +15,6 @@
             class="img"
             min-height="100%"
             max-width="40%"
-            
             v-if="resultInfo.poster_image_url === null"
             src="https://www.svgrepo.com/show/93632/movie.svg"
         ></v-img>
@@ -56,14 +55,12 @@
     }
     .infoContainer{
         padding-left: 5%;
-        padding-bottom: 1%;
+        padding-bottom: 2%;
     }
 
     .img{
         margin-left: 0%;
-        }
-
-
+    }
 </style>
 
 <script>
