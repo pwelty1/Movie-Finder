@@ -6,7 +6,8 @@
       app
       elevate-on-scroll
     >
-      <v-toolbar-title class="title"  v-text="title"/> 
+      <v-toolbar-title  v-text="title"/> 
+      <v-spacer />
       <v-text-field 
         v-model="search" 
         append-icon="mdi-magnify"
@@ -49,9 +50,6 @@
 </template>
 
 <style>
-  .title{
-    margin-right: 19%;
-  }
 
   .imgF{
     margin-left: 2%;
