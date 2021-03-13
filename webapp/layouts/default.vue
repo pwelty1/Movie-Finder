@@ -57,12 +57,14 @@
 
   .footNote{
     display: flex;
-    margin-left: 87%;
+    justify-content: flex-end;
+    margin-left: auto;
+    margin-right: 1%;
   }
 
   .container {
-    margin-right: 23%;
-    margin-left: 23%;
+    display: flex;
+    justify-content: center;
   }
 </style>
 

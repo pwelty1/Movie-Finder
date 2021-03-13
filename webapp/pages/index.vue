@@ -1,4 +1,4 @@
-<template>
+<template class="temp">
   <v-list class="list" >
       <v-subheader><h2>Results</h2></v-subheader>
       <v-subheader v-if="results.length <= 0"><h3>None</h3></v-subheader>
@@ -19,6 +19,18 @@
 <style>
   .list{
     max-width: 70%;
+  }
+
+  @media(max-width: 700px){
+    .list{
+      max-width: 80%;
+    }
+  }
+
+  @media(max-width: 400px){
+    .list{
+      max-width: 100%;
+    }
   }
 </style>
 

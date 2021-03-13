@@ -6,15 +6,11 @@
     >
         <v-img
             class="img"
-            min-height="100%"
-            max-width="40%"
             v-if="resultInfo.poster_image_url !== null"
             v-bind:src="resultInfo.poster_image_url"
         ></v-img>
         <v-img
             class="img"
-            min-height="100%"
-            max-width="40%"
             v-if="resultInfo.poster_image_url === null"
             src="https://www.svgrepo.com/show/93632/movie.svg"
         ></v-img>
@@ -65,7 +61,24 @@
 
     .img{
         margin-left: 0%;
+        min-height: 100%;
+        max-width: 40%;
     }
+
+    @media(max-width: 700px){
+        .card{
+            display: inline;
+            justify-content: center;
+        }
+
+        .img{
+            margin-left: 0%;
+            max-height: 25%;
+            max-width: 100%;
+        }
+
+    }
+
 </style>
 
 <script>
