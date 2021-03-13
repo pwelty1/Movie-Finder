@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "server": "node ./bin/www",
-    "server:debug": "DEBUG=movie-lookup:* nodemon ./bin/www"
+    "server:debug": "DEBUG=movie-lookup:* nodemon ./bin/www",
+    "test": "mocha"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -17,6 +18,8 @@
     "jade": "~1.11.0",
     "mocha": "^8.3.2",
     "morgan": "~1.9.1",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "request": "^2.88.2",
+    "requests": "^0.3.0"
   }
 }
