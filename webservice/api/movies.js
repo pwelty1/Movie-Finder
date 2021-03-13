@@ -5,11 +5,11 @@ const debug = require('debug')('movie-lookup:api:movie')
 const axios = require('axios')
 const {tmdb_headers} = require('../loadConfig.js')
 
-router.get('/', handlers.get_movie = async (req, res) => {
+router.get('/', handlers.get_movies = async (req, res) => {
     const movie_url = "https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&region=US&query="
     const image_url = "https://image.tmdb.org/t/p/w500"
     try {
-        const limit =  10
+        const limit = 10
         const search = req.query.search.replace(/ /g, "+")
         const url = movie_url + search
         debug(url)
@@ -33,7 +33,6 @@ router.get('/', handlers.get_movie = async (req, res) => {
         }
     } catch (error) {
         res.status(500).json({
-            success: false,
             error: error.message
         });
     }
