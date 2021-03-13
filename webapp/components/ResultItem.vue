@@ -19,7 +19,7 @@
             src="https://www.svgrepo.com/show/93632/movie.svg"
         ></v-img>
         <div class="infoContainer"> 
-            <v-card-title>
+            <v-card-title class="cardTitle">
                 {{ resultInfo.title }}
             </v-card-title>
             <v-card-subtitle> 
@@ -53,6 +53,11 @@
         width: 90%;
 
     }
+
+    .cardTitle {
+        word-break: normal;
+    }
+
     .infoContainer{
         padding-left: 5%;
         padding-bottom: 2%;
