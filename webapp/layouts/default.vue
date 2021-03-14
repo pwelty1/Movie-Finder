@@ -81,9 +81,14 @@ export default {
 
   methods: {
     async getResults (search) {
-      const url = "http://localhost:3000/api/movies?search="
-      const {data} = await axios.get(url + search.replace(/ /g, "+"))
-      this.$store.commit('searchResults/set', data)
+      if(search !== ""){
+        const url = "http://localhost:3000/api/movies?search="
+        const {data} = await axios.get(url + search.replace(/ /g, "+"))
+        this.$store.commit('searchResults/set', data)
+      }
+      else{
+        this.$store.commit('searchResults/set', [])
+      }
     }
   }
 }

@@ -28,7 +28,6 @@
                     :value="((parseInt(resultInfo.popularity_summary.split(' ')[0]) 
                     / parseInt(resultInfo.popularity_summary.split(' ')[3]))*100)"
                     color="primary"
-                    class="progress"
                     align-content="center"
                 >
                     {{ resultInfo.popularity_summary }}

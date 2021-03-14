@@ -19,6 +19,7 @@
 <style>
   .list{
     max-width: 70%;
+    width: 70%;
   }
 
   @media(max-width: 700px){
