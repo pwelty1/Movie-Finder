@@ -1,4 +1,4 @@
-const expect    = require("chai").expect
+const expect = require("chai").expect
 const handlers = require("../api/movies")._handlers
 const request = require("request")
 

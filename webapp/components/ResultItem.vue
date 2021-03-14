@@ -18,22 +18,21 @@
             <v-card-title class="cardTitle">
                 {{ resultInfo.title }}
             </v-card-title>
-            <v-card-subtitle> 
-                ID: {{ resultInfo.movie_id }} 
+            <v-card-subtitle class="cardSubtitle"> 
+                ID: {{ resultInfo.movie_id }}
             </v-card-subtitle>
                 <v-progress-circular
                     :rotate="-90"
-                    :size="180"
-                    :width="15"
+                    v-bind:size="$vuetify.breakpoint.xs ? 110 : 140 "
+                    :width="11"
                     :value="((parseInt(resultInfo.popularity_summary.split(' ')[0]) 
                     / parseInt(resultInfo.popularity_summary.split(' ')[3]))*100)"
                     color="primary"
                     align-content="center"
                 >
-                    {{ resultInfo.popularity_summary }}
+                    <h4 class="popText">{{ resultInfo.popularity_summary }}</h4>
                 </v-progress-circular>
         </div>
-
     </v-card>
 </template>
 
@@ -49,10 +48,6 @@
 
     }
 
-    .cardTitle {
-        word-break: normal;
-    }
-
     .infoContainer{
         padding-left: 5%;
         padding-bottom: 2%;
@@ -60,20 +55,36 @@
 
     .img{
         margin-left: 0%;
-        min-height: 100%;
-        max-width: 40%;
+        max-height: 30%;
+        max-width: 30%;
+    }
+
+    .popText{
+        font-size: 70%;
     }
 
     @media(max-width: 700px){
-        .card{
-            display: inline;
-            justify-content: center;
-        }
 
+        .card{
+            width: 100%; 
+        }
         .img{
             margin-left: 0%;
-            max-height: 25%;
-            max-width: 100%;
+            max-height: 60%;
+            max-width: 40%;
+        }
+
+        .cardTitle{
+            font-size: 70%;
+            word-break: normal
+        }
+
+        .cardSubtitle{
+            font-size: 60%;
+        }
+
+        .popText{
+            font-size: 50%;
         }
 
     }
@@ -82,6 +93,15 @@
 
 <script>
 export default {
+
+    // data: () => ({
+    //     sizeProgress: setInterval(this.screenSize, 10) 
+    // }),
+    // methods: {
+    //  screenSize() {
+    //   return window.innerWidth
+    //  }
+    // },
     props: ['resultInfo']
 
 }
