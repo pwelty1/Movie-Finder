@@ -1,7 +1,7 @@
 const router = require('express-promise-router')()
 const handlers = router._handlers = {}
 //const bodyParser = require('body-parser')
-const debug = require('debug')('movie-lookup:api:movie')
+const debug = require('debug')('movie-finder:api:movie')
 const axios = require('axios')
 const {tmdb_headers} = require('../loadConfig.js')
 
