@@ -23,7 +23,7 @@
             </v-card-subtitle>
                 <v-progress-circular
                     :rotate="-90"
-                    v-bind:size="$vuetify.breakpoint.xs ? 110 : 140 "
+                    :size="$vuetify.breakpoint.xs ? 110 : 140 "
                     :width="11"
                     :value="((parseInt(resultInfo.popularity_summary.split(' ')[0]) 
                     / parseInt(resultInfo.popularity_summary.split(' ')[3]))*100)"
