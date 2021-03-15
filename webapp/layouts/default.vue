@@ -80,7 +80,7 @@ export default {
 
   methods: {
     async getResults (search) {
-      if(search !== ""){
+      if(search !== "" && search !== undefined && search !== null){
         const url = "http://localhost:3000/api/movies?search="
         const {data} = await axios.get(url + search.replace(/ /g, "+"))
         this.$store.commit('searchResults/set', data)
