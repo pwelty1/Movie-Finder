@@ -4,7 +4,7 @@ built with
 
 <div align="center">
   <div style="display: flex;">
-    <img src="~/webapp/v.png" style="vertical-align: top;" />
+    <img src="/webapp/static/v.png" style="vertical-align: top;" />
     <img src="https://nuxtjs.org/logos/nuxt-emoji@2x.png" />
     <img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg" />
   </div>
