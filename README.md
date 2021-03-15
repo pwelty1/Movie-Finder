@@ -2,7 +2,7 @@
 
 built with
 
-<div align="center">
+<div align="left">
   <div style="display: flex;">
     <img height="40" src="/webapp/static/v.png" style="vertical-align: top;" />
     <img height="40" src="https://nuxtjs.org/logos/nuxt-emoji@2x.png" />
