@@ -78,7 +78,34 @@ First off, I was completely new to Nuxt.js before starting this project. Being f
 
   #### UI/UX
 
-  I modeled the frontend using, IMBD, TMDB, and Google search result pages as reference for designing the general layout for the site. I when initially created the boilerplate I installed a material component library called Vuetify.js be able to streamline the design while maintaining professional UI/UX standards using a design language, materuial, familiar to many potiential users. A few things I really like about Vuetify is that it works very easily out of the box, with great documentation online. One thing I don't like is how every component in the library is prepended with `v-`. When I saw this at first, I had a hard time distinguishing what was coming from vuetify and what were built-in features from Vue such as `v-for`, `v-bind`, `v-model`, etc. Maybe thats just me being a rookie. I think the library still needs some work on some of their components however, I think it has the makings to be just as great as React's material-UI(I love it).
+  I modeled the frontend using, IMBD, TMDB, and Google search result pages as reference for designing the general layout for the site. I when initially created the boilerplate I installed a material component library called Vuetify.js be able to streamline the design while maintaining professional UI/UX standards using a design language, materuial, familiar to many potiential users. A few things I really like about Vuetify is that it works very easily out of the box, with great documentation online. It also has great mobile breakpoints that dynamically work with `v-bind` in a component's props for sizing. One thing I don't like is how every component in the library is prepended with `v-`. When I saw this at first, I had a hard time distinguishing what was coming from vuetify and what were built-in features from Vue such as `v-for`, `v-bind`, `v-model`, etc. Maybe thats just me being a rookie. I think the library still needs some work on some of their components however, I think it has the makings to be just as great as React's material-UI(I love it).
 
   ### Backend
+
+  I built the backend using `npx express-generator` to give a scaffolding for the backend. I am pretty familiar with Node.js and I built out a RESTful API for my frontend to access even though there is currently one endpoint. I reused a template I have used in past projects to get up and running quickly. Here is a link to swagger doc, documenting the API `/movies`endpoint I created:
+
+  https://app.swaggerhub.com/apis/weltypeter/Movie-Finder/1.0.0
+
+  I also created unit tests to give full coverage of the `/movies` endpoint using mocha, a testing framework, and chai, a package allowing that simplifies assertions. I have used Jest in the past to create tests for my react applications. Mocha is nice and simple, for a first time user like me. However, I could not get axios to play nice with mocha, but ended up using an npm package called request that worked fine.
+
+  ## Potiential Future Features
+
+  - build a home page similar to Google's with just a search bar
+  - route result pages like Google does with includeing the search query in the address bar
+  - make use of the pagination on the `search/movies` endpoint from TMDB's API and display 20 results for a page and create a feature to click on the next page as a query in the addressbar, similar to clicking the next page on Google search results. 
+  - create an "I'm Feeling Lucky" feature that uses the `/movies/discover` endpoint from TMDB's API and choose a random page from the results to route to.
+  - create a formatted single page to route to that displays more information about a single movie when clicking on a search result. This would correspond to using `/movies/:id` endpoint from TMDB's API.
+
+  ## Screenshots of the Webapp Running
+
+  Currently when the app starts up it displays a searchbar in the appbar of the app and a Results list with `None`. However,begin typing in a movie into the search bar and press enter or the mangifying glass to begin a search.
+
+  <div align="left">
+  <div style="display: flex;">
+    <img height="100" src="/screenshots/noResultsDesktop.png"  />
+    <img height="100" src="/screenshots/ResultsDesktop.png"  />
+    <img height="100" src="/screenshots/noResultsMobile.png"  />
+    <img height="100" src="/screenshots/ResultsMobile.png"  />
+  </div>
+</div>
 
