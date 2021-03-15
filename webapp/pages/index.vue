@@ -26,7 +26,7 @@
     margin-left: 2%;
   }
 
-  @media(max-width: 700px){
+  @media(max-width: 600px){
     .resultlist{
       max-width: 100%;
     }

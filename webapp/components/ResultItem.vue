@@ -63,7 +63,7 @@
         font-size: 70%;
     }
 
-    @media(max-width: 700px){
+    @media(max-width: 600px){
 
         .card{
             width: 100%; 
@@ -86,22 +86,12 @@
         .popText{
             font-size: 50%;
         }
-
     }
-
 </style>
 
 <script>
 export default {
 
-    // data: () => ({
-    //     sizeProgress: setInterval(this.screenSize, 10) 
-    // }),
-    // methods: {
-    //  screenSize() {
-    //   return window.innerWidth
-    //  }
-    // },
     props: ['resultInfo']
 
 }

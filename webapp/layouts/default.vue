@@ -50,7 +50,6 @@
 </template>
 
 <style>
-
   .imgF{
     margin-left: 2%;
   }
