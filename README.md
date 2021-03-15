@@ -7,7 +7,6 @@ built with
     <img height="40" src="/webapp/static/v.png" style="vertical-align: top;" />
     <img height="40" src="https://nuxtjs.org/logos/nuxt-emoji@2x.png" />
     <img height="40" src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg" />
-    <img height="40" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fexpressjs.com%2F&psig=AOvVaw2K6m7II1yx8n6qyk_7gPu2&ust=1615878978113000&source=images&cd=vfe&ved=2ahUKEwjP2pi14LHvAhUIAc0KHYu7ChwQjRx6BAgAEAc" />
   </div>
 </div>
 
