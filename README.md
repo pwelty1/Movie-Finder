@@ -1,4 +1,4 @@
-# Movie-Lookup
+# Movie-Finder
 
 built with
 
