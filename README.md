@@ -102,10 +102,10 @@ First off, I was completely new to Nuxt.js before starting this project. Being f
 
   <div align="left">
   <div style="display: flex;">
-    <img height="100" src="/screenshots/noResultsDesktop.png"  />
-    <img height="100" src="/screenshots/resultsDesktop.png"  />
-    <img height="100" src="/screenshots/noResultsMobile.png"  />
-    <img height="100" src="/screenshots/resultsMobile.png"  />
+    <img height="300" src="/screenshots/noResultsDesktop.png"  />
+    <img height="300" src="/screenshots/resultsDesktop.png"  />
+    <img height="300" src="/screenshots/noResultsMobile.png"  />
+    <img height="300" src="/screenshots/resultsMobile.png"  />
   </div>
 </div>
 
