@@ -1,7 +1,6 @@
 const router = require('express-promise-router')()
 const handlers = router._handlers = {}
-//const bodyParser = require('body-parser')
-const debug = require('debug')('movie-lookup:api:movie')
+const debug = require('debug')('movie-finder:api:movie')
 const axios = require('axios')
 const {tmdb_headers} = require('../loadConfig.js')
 
@@ -32,7 +31,7 @@ router.get('/', handlers.get_movies = async (req, res) => {
             res.status(200).json(results);
         }
     } catch (error) {
-        res.status(500).json({
+        res.status(400).json({
             error: error.message
         });
     }

@@ -1,5 +1,5 @@
 const router = require('express-promise-router')();
-const debug = require("debug")("movie-lookup:api");
+const debug = require("debug")("movie-finder:api");
 
 
 router.use('/movies', require('./movies'))

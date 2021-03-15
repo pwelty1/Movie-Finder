@@ -1,0 +1,7 @@
+{
+    "tmdb_headers": {
+        "headers": {
+        "Authorization": "Bearer <api token from TMDB>"
+        }
+    }
+}
