@@ -39,6 +39,10 @@ Note: before running the backend, you will need to provide your own config.json 
 
 In the webservice directory, you can run:
 
+#### `npm install`
+
+installs backend dependencies<br />
+
 #### `npm run server`
 
 runs the backend. It runs on [http://localhost:8080](http://localhost:8080)
